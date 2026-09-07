@@ -53,6 +53,10 @@ PrefabInstance:
       value: Enemy fast
       objectReference: {fileID: 0}
     - target: {fileID: 7901624919974101549, guid: 8a3a68cb4934e384a8f17df275561e52, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901624919974101549, guid: 8a3a68cb4934e384a8f17df275561e52, type: 3}
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
