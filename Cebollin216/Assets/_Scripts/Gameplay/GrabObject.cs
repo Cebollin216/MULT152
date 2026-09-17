@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
-    
-    public bool playerInRange = false;
+    public bool PlayerInRange = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+            PlayerInRange = true;
+            Debug.Log("Press E to pick up the object");
         }
     }
 
@@ -18,7 +18,8 @@ public class GrabObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
+        PlayerInRange = false;
+        Debug.Log("Player Dropped Object");
         }
-    }
+    }   
 }
