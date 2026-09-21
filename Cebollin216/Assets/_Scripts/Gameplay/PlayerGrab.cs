@@ -38,8 +38,8 @@ public class PlayerGrab : MonoBehaviour
             {
                 heldObject = col.gameObject;
 
-                grabObject grabData = heldObject.GetComponent<grabObject>();
-                carriedWeight = grabData.Weight;
+                GrabObject grabData = heldObject.GetComponent<GrabObject>();
+                carriedWeight = grabData.weight;
 
                 Rigidbody rb = heldObject.GetComponent<Rigidbody>();
 
