@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e6ffa2a4ed68244becae0c297ebc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObject
+  weight: 10
   PlayerInRange: 0
 --- !u!135 &305329420
 SphereCollider:
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e6ffa2a4ed68244becae0c297ebc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObject
+  weight: 10
   PlayerInRange: 0
 --- !u!1001 &686847997
 PrefabInstance:
@@ -403,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGrab
   grabAction: {fileID: -7523424187745921208, guid: 91212f25fd65f4d4783be915cfb6d4ae, type: 3}
   holdpoint: {fileID: 141404196}
+  carriedWeight: 0
 --- !u!1001 &917407070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,6 +610,8 @@ GameObject:
   - component: {fileID: 1276886976}
   - component: {fileID: 1276886975}
   - component: {fileID: 1276886974}
+  - component: {fileID: 1276886979}
+  - component: {fileID: 1276886978}
   m_Layer: 0
   m_Name: Concrete
   m_TagString: Pickup
@@ -707,6 +712,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276886978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276886973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06d9f1b6f607fa4b89c80831d1ad60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrab
+  grabAction: {fileID: 0}
+  holdpoint: {fileID: 0}
+  carriedWeight: 0
+--- !u!114 &1276886979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276886973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e6ffa2a4ed68244becae0c297ebc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabObject
+  weight: 10
+  PlayerInRange: 0
 --- !u!1001 &1339311618
 PrefabInstance:
   m_ObjectHideFlags: 0
