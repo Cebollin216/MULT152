@@ -8,6 +8,11 @@ public class GrabObject : MonoBehaviour
     
     [Header("Object Weight")]
      public float weight = 10f;
+
+     [Header("Attack Setting")]
+     public bool canBeThrown = false;
+
+     [HideInInspector]
     public bool PlayerInRange = false;
 
     private void OnTriggerEnter(Collider other)

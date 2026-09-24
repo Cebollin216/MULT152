@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 305329421}
   - component: {fileID: 305329420}
   - component: {fileID: 305329419}
+  - component: {fileID: 305329424}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Pickup
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabObject
   itemName: Rock
   weight: 5
+  canBeThrown: 1
   PlayerInRange: 0
 --- !u!135 &305329420
 SphereCollider:
@@ -247,6 +249,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &305329424
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305329418}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &419091249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3840492971116793188, guid: 8a3a68cb4934e384a8f17df275561e52, type: 3}
@@ -285,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabObject
   itemName: Crate
   weight: 35
+  canBeThrown: 0
   PlayerInRange: 0
 --- !u!1001 &686847997
 PrefabInstance:
@@ -813,6 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrabObject
   itemName: Concrete
   weight: 150
+  canBeThrown: 0
   PlayerInRange: 0
 --- !u!1001 &1339311618
 PrefabInstance:
@@ -1391,12 +1422,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1891732306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 479228094703463637, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
+  m_PrefabInstance: {fileID: 1937958027092642067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1891732307 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7416912141248811838, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
   m_PrefabInstance: {fileID: 1937958027092642067}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1891732306}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 483e13288eeb9bd42a6fc52f4b0f78c1, type: 3}
@@ -1407,12 +1443,27 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2330651756528523605, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
   m_PrefabInstance: {fileID: 1937958027092642067}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1891732306}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f06d9f1b6f607fa4b89c80831d1ad60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGrab
+--- !u!114 &1891732316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891732306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff529e4c262a6647b531db2254b8b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerThrow
+  throwAction: {fileID: -2063318794676617098, guid: 91212f25fd65f4d4783be915cfb6d4ae, type: 3}
+  playerGrab: {fileID: 1891732308}
+  thtrowForce: 20
 --- !u!1001 &1899472511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,7 +1877,10 @@ PrefabInstance:
     - {fileID: 2650592391466217729, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 479228094703463637, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891732316}
   m_SourcePrefab: {fileID: 100100000, guid: 776dd118a3af7354da778fdcfcf8e3a3, type: 3}
 --- !u!1001 &4490790119990670150
 PrefabInstance:

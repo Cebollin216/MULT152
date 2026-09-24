@@ -10,13 +10,15 @@ public class PlayerGrab : MonoBehaviour
     private GameObject heldObject;
 
     [HideInInspector]
-
     public string carriedItemName = "Nothing";
 
     [HideInInspector]
-
     public float carriedWeight = 0f;
 
+    public GameObject HeldObject
+    {
+        get { return heldObject;}
+    }
     
 
     void Update()
@@ -80,5 +82,17 @@ public class PlayerGrab : MonoBehaviour
         heldObject = null;
         carriedItemName = "Nothing";
         carriedWeight = 0f;
+    }
+
+    public void ReleaseHeldObject()
+    {
+        if (heldObject == null) return;
+
+        heldObject.transform.SetParent(null);
+
+        carriedItemName = "Nothing";
+        carriedWeight = 0;
+
+        heldObject = null;
     }
 }
