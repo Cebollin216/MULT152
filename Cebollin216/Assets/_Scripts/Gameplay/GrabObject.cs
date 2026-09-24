@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
+    [Header("Item Infromation")]
+    public string itemName = "New Item";
+    
     [Header("Object Weight")]
      public float weight = 10f;
     public bool PlayerInRange = false;

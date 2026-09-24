@@ -22,6 +22,8 @@ public class PlayerJump : MonoBehaviour
 
     private bool isGrounded;
 
+    public float CurrentJumpForce {get; private set;}
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +31,15 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        CurrentJumpForce = jumpForce;
+
+        if (playerGrab.carriedWeight > 0)
+        {
+            CurrentJumpForce -= playerGrab.carriedWeight * 0.1f;
+        }
+
+        CurrentJumpForce = Math.Max(CurrentJumpForce, 2f);
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
 
         if (jumpAction.action.triggered && isGrounded)
@@ -39,15 +50,6 @@ public class PlayerJump : MonoBehaviour
 
     void Jump()
     {
-       float finalJumpForce = jumpForce;
-
-       if (playerGrab.carriedWeight > 0)
-        {
-            finalJumpForce -= playerGrab.carriedWeight * 0.1f;
-        } 
-
-        finalJumpForce = Mathf.Max(finalJumpForce, 2f);
-
-      rb.AddForce(Vector3.up * finalJumpForce, ForceMode.Impulse);
+          rb.AddForce(Vector3.up * CurrentJumpForce, ForceMode.Impulse);      
     }
 }

@@ -7,9 +7,17 @@ public class PlayerGrab : MonoBehaviour
 
     public Transform holdpoint;
 
+    private GameObject heldObject;
+
+    [HideInInspector]
+
+    public string carriedItemName = "Nothing";
+
+    [HideInInspector]
+
     public float carriedWeight = 0f;
 
-    private GameObject heldObject;
+    
 
     void Update()
     {
@@ -34,11 +42,13 @@ public class PlayerGrab : MonoBehaviour
         {
             GrabObject grabObject = col.GetComponent<GrabObject>();
 
+
             if (grabObject != null)
             {
                 heldObject = col.gameObject;
 
                 GrabObject grabData = heldObject.GetComponent<GrabObject>();
+                carriedItemName = grabObject.itemName;
                 carriedWeight = grabData.weight;
 
                 Rigidbody rb = heldObject.GetComponent<Rigidbody>();
@@ -67,7 +77,8 @@ public class PlayerGrab : MonoBehaviour
             rb.isKinematic = false;
         }
 
-        carriedWeight = 0f;
         heldObject = null;
+        carriedItemName = "Nothing";
+        carriedWeight = 0f;
     }
 }
