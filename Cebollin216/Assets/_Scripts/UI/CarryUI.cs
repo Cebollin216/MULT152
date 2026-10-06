@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System;
+
 
 public class CarryUI : MonoBehaviour
 {
@@ -8,10 +8,24 @@ public class CarryUI : MonoBehaviour
 
     public TextMeshProUGUI carryInfoText;
 
+    public TextMeshProUGUI targetInfoText;
+
     public PlayerJump playerJump;
+
+    public PlayerTargeting targeting;
+
+    string targetName = "None";
 
     void Update()
     {
-        carryInfoText.text = "Carrying: " + playerGrab.carriedItemName + "\nweight: " + playerGrab.carriedWeight + "\nJump Force: " + playerJump.CurrentJumpForce.ToString("F1");
+        if (targeting.CurrentTarget != null)
+        {
+            targetName = targeting.CurrentTarget.name;
+        }
+
+        carryInfoText.text = "Carrying: " + playerGrab.carriedItemName + 
+        "\nWeight: " + playerGrab.carriedWeight + "\nJump Force: " + playerJump.CurrentJumpForce.ToString("F1");
+
+        targetInfoText.text = "Target: " + targetName;
     }
 }

@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
         Debug.Log(gameObject.name + "took " + damage + " damage. ");
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Debug.Log(gameObject.name + " died");
             Destroy(gameObject);

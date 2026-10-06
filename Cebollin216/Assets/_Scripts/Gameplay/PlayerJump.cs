@@ -1,28 +1,27 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    [Header("Jump Settings")]
-    public float jumpForce = 8f;
+   [Header("Jump Settings")]
+   public float jumpForce = 8f;
 
-    [Header("Input")]
-    public InputActionReference jumpAction;
+   [Header("Input")]
+   public InputActionReference jumpAction;
 
-    [Header("Ground Check")]
-    public Transform groundCheck;
-    public float groundDistance = 0.25f;
-    public LayerMask groundLayer;
+   [Header("Ground Check")]
+   public Transform groundCheck;
+   public float groundDistance = 0.25f;
+   public LayerMask groundLayer;
 
-    [Header("Weight Setting")]
-    public PlayerGrab playerGrab;
+   [Header("Weight Setting")]
+   public PlayerGrab playerGrab;
 
-    private Rigidbody rb;
+   private Rigidbody rb;
 
-    private bool isGrounded;
+   private bool isGrounded;
 
-    public float CurrentJumpForce {get; private set;}
+   public float CurrentJumpForce {get; private set;}
 
     void Start()
     {
@@ -30,26 +29,26 @@ public class PlayerJump : MonoBehaviour
     }
 
     void Update()
-    {
-        CurrentJumpForce = jumpForce;
+   {
+      CurrentJumpForce = jumpForce;
 
-        if (playerGrab.carriedWeight > 0)
-        {
-            CurrentJumpForce -= playerGrab.carriedWeight * 0.1f;
-        }
+      if (playerGrab.carriedWeight > 0)
+      {
+         CurrentJumpForce -= playerGrab.carriedWeight * 0.1f;
+      }
 
-        CurrentJumpForce = Math.Max(CurrentJumpForce, 2f);
+      CurrentJumpForce = Mathf.Max(CurrentJumpForce, 2f);
+      
+      isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
+      if (jumpAction.action.triggered && isGrounded)
+      {
+         Jump();
+      }
+   }
 
-        if (jumpAction.action.triggered && isGrounded)
-        {
-           Jump();
-        }
-    }
-
-    void Jump()
-    {
-          rb.AddForce(Vector3.up * CurrentJumpForce, ForceMode.Impulse);      
-    }
+   void Jump()
+   {
+      rb.AddForce(Vector3.up * CurrentJumpForce, ForceMode.Impulse);
+   }
 }

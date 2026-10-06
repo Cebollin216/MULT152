@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,7 @@ public class PlayerThrow : MonoBehaviour
 
     public PlayerGrab playerGrab;
 
-    public float thtrowForce = 20f;
+    public float throwForce = 20f;
 
     void Update()
     {
@@ -20,26 +19,6 @@ public class PlayerThrow : MonoBehaviour
 
     void ThrowObject()
     {
-        /*if (playerGrab.HeldObject == null) return;
-
-        GrabObject item = playerGrab.HeldObject.GetComponent<GrabObject>();
-
-        if (!item.canBeThrown) return;
-
-        Rigidbody rb = playerGrab.HeldObject.GetComponent<Rigidbody>();
-
-        playerGrab.ReleaseHeldObject();
-
-        if (rb = null) return;
-
-        rb.isKinematic = false;
-
-        Vector3 throwDirection;
-
-        throwDirection = transform.forward;
-
-        rb.AddForce(throwDirection* thtrowForce, ForceMode.Impulse);*/
-
         if (playerGrab.HeldObject == null)
         {
             Debug.Log("No Object Held!");
@@ -65,6 +44,6 @@ public class PlayerThrow : MonoBehaviour
         playerGrab.ReleaseHeldObject();
 
         rb.isKinematic = false;
-        rb.AddForce(transform.forward * thtrowForce, ForceMode.Impulse);
+        rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
     }
 }
