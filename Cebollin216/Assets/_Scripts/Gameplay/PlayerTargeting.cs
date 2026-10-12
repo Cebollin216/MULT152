@@ -6,6 +6,8 @@ public class PlayerTargeting : MonoBehaviour
 {
     public InputActionReference cycleTargetAction;
 
+    public bool IsLockedOn {get; private set;}
+
     private List<EnemyTarget> enemies = new List<EnemyTarget>();
 
     private int currentIndex = -1;
@@ -24,6 +26,38 @@ public class PlayerTargeting : MonoBehaviour
             }
 
             return enemies[currentIndex];
+        }
+    }
+
+    public EnemyTarget LockedTarget
+    {
+        get
+        {
+            if (currentIndex < 0 || currentIndex >= enemies.Count)
+            {
+                return null;
+            }
+            
+            return enemies[currentIndex];
+        }
+    }
+
+    public void ToggleLock()
+    {
+        if (enemies.Count == 0)
+        {
+            return;
+        }
+        
+        IsLockedOn = !IsLockedOn;
+
+        if (IsLockedOn)
+        {
+            Debug.Log("Locked: " + LockedTarget.name);
+        }
+        else
+        {
+            Debug.Log("Lock Released");
         }
     }
 
