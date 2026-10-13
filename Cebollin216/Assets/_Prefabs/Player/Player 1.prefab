@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 2399401904188291503}
   - component: {fileID: 82318029635810937}
   - component: {fileID: 2802013517734947820}
+  - component: {fileID: 2958502599890437581}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -261,7 +262,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  playerGrab: {fileID: 0}
+  playerGrab: {fileID: 2330651756528523605}
 --- !u!114 &2802013517734947820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +282,21 @@ MonoBehaviour:
   targeting: {fileID: 2399401904188291503}
   lockOnAction: {fileID: 6185938384498948496, guid: 91212f25fd65f4d4783be915cfb6d4ae, type: 3}
   currentMode: 1
+--- !u!114 &2958502599890437581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479228094703463637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff39a3ce0d5c924497b098fbcbd2821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  healthSlider: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1232246468433020591
 GameObject:
   m_ObjectHideFlags: 0

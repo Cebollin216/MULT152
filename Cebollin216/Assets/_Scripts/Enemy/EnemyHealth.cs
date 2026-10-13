@@ -1,8 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public Slider healthSlider;
     public int health = 50;
+    public int maxHealth = 50;
+
+    void Start()
+    {
+        health = maxHealth;
+        healthSlider.value = health;
+
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = health;
+    }
 
     public void TakeDamage(int damage)
     {
