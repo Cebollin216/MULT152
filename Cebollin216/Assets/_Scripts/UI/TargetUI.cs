@@ -7,10 +7,14 @@ public class TargetUI : MonoBehaviour
     [Header("Setup")]
     public PlayerTargeting playerTargeting;
     public GameObject targetPanel;
-
     public TMP_Text targetNameText;
     public TMP_Text targetHealthText;
     public Slider targetHealthBar;
+
+    void Update()
+    {
+        UpdateTargetUI();
+    }
 
     void UpdateTargetUI()
     {
@@ -23,10 +27,10 @@ public class TargetUI : MonoBehaviour
         targetPanel.SetActive(true);
 
         EnemyTarget target = playerTargeting.CurrentTarget;
-        EnemyHealth health = target.GetComponent<EnemyHealth>();
+        EnemyHealth tHealth = target.GetComponent<EnemyHealth>();
         targetNameText.text = target.name;
-        targetHealthBar.value = health;
-        targetHealthText.tag = targetHealthBar.health + " / " + targetHealth.maxHealth;
+        targetHealthBar.maxValue = tHealth.maxHealth;
+        targetHealthBar.value = tHealth.health;
+        targetHealthText.text = tHealth.health + " / " + tHealth.maxHealth;
     }
-
 }
