@@ -176,11 +176,11 @@ GameObject:
   - component: {fileID: 8307705878374347610}
   - component: {fileID: 5752499292954933130}
   - component: {fileID: 6601968291788372132}
-  - component: {fileID: 7867611617611566112}
   - component: {fileID: 3784250973172363514}
-  - component: {fileID: 4930976031535799299}
   - component: {fileID: 922496846500209649}
   - component: {fileID: 7212227875914893067}
+  - component: {fileID: 4080630070777081481}
+  - component: {fileID: 1534126531140330867}
   m_Layer: 0
   m_Name: Enemy Base
   m_TagString: Enemy
@@ -285,21 +285,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7867611617611566112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840492971116793188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647226e9abc0d9e47adce093c54dec1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  healthSlider: {fileID: 0}
-  health: 50
-  maxHealth: 50
 --- !u!114 &3784250973172363514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,21 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef20102c2d457449a787f04d8968bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTarget
---- !u!114 &4930976031535799299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3840492971116793188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647226e9abc0d9e47adce093c54dec1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  healthSlider: {fileID: 2627827830575255661}
-  health: 50
-  maxHealth: 50
 --- !u!114 &922496846500209649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyThrow
   player: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 6697934985381932946, guid: 97363b0117ad1124ebb3e8be807e6fe2, type: 3}
   throwPoint: {fileID: 1988763018370450231}
   throwForce: 15
   attackRange: 8
@@ -361,6 +331,36 @@ MonoBehaviour:
   movespeed: 3
   detectionRange: 15
   attackRange: 8
+--- !u!114 &4080630070777081481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840492971116793188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeba44f953734d14e8691219b60c8414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  healthSlider: {fileID: 2627827830575255661}
+  health: 50
+  maxHealth: 50
+  damageTextPrefab: {fileID: 0}
+  damageTextSpawnPoint: {fileID: 0}
+--- !u!114 &1534126531140330867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840492971116793188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d63937f31b13f44bee727a719079ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
+  damage: 10
 --- !u!1 &8381710371546305524
 GameObject:
   m_ObjectHideFlags: 0

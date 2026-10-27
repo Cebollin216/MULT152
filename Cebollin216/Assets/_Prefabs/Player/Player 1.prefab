@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 2399401904188291503}
   - component: {fileID: 82318029635810937}
   - component: {fileID: 2802013517734947820}
-  - component: {fileID: 2958502599890437581}
+  - component: {fileID: 2941247202725395936}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -68,7 +68,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.87, z: 6.05}
-  m_LocalScale: {x: 1.25, y: 1.87, z: 1.25}
+  m_LocalScale: {x: 1.25, y: 1.5, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8615053933543857249}
@@ -282,7 +282,7 @@ MonoBehaviour:
   targeting: {fileID: 2399401904188291503}
   lockOnAction: {fileID: 6185938384498948496, guid: 91212f25fd65f4d4783be915cfb6d4ae, type: 3}
   currentMode: 1
---- !u!114 &2958502599890437581
+--- !u!114 &2941247202725395936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,8 +295,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   healthSlider: {fileID: 0}
+  healthFill: {fileID: 0}
+  healthText: {fileID: 0}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
 --- !u!1 &1232246468433020591
 GameObject:
   m_ObjectHideFlags: 0
