@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -55,9 +54,7 @@ public class PlayerCameraManager : MonoBehaviour
     void HandleCameraToggle()
     {
         if (!toggleCameraAction.action.triggered)
-        {
             return;
-        }
 
         if (currentMode == CameraMode.FirstPerson)
         {
@@ -74,26 +71,24 @@ public class PlayerCameraManager : MonoBehaviour
     void HandleAimMode()
     {
         if (currentMode == CameraMode.FirstPerson)
-        {
             return;
-        }
 
         if (aimAction.action.IsPressed())
         {
-            if (currentMode != CameraMode.FocusAim)
+            if (currentMode != CameraMode.ShoulderAim)
             {
                 previousMode = currentMode;
-                currentMode = CameraMode.FocusAim;
+                currentMode = CameraMode.ShoulderAim;
 
                 UpdateCameraState();
             }
         }
         else
         {
-            if (currentMode == CameraMode.FocusAim)
+            if (currentMode == CameraMode.ShoulderAim)
             {
                 currentMode = CameraMode.ThirdPerson;
-                
+
                 UpdateCameraState();
             }
         }
@@ -101,10 +96,10 @@ public class PlayerCameraManager : MonoBehaviour
 
     void UpdateCameraState()
     {
-        switch(currentMode)
+        switch (currentMode)
         {
             case CameraMode.FirstPerson:
-                
+
                 firstPersonCamera.SetActive(true);
                 thirdPersonCamera.SetActive(false);
 
@@ -116,7 +111,7 @@ public class PlayerCameraManager : MonoBehaviour
                 break;
 
             case CameraMode.ThirdPerson:
-                
+
                 firstPersonCamera.SetActive(false);
                 thirdPersonCamera.SetActive(true);
 
@@ -124,8 +119,8 @@ public class PlayerCameraManager : MonoBehaviour
 
                 break;
 
-            case CameraMode.FocusAim:
-                
+            case CameraMode.ShoulderAim:
+
                 firstPersonCamera.SetActive(false);
                 thirdPersonCamera.SetActive(true);
 
@@ -147,6 +142,6 @@ public class PlayerCameraManager : MonoBehaviour
 
     public bool IsAiming()
     {
-        return currentMode == CameraMode.FocusAim;
+        return currentMode == CameraMode.ShoulderAim;
     }
 }

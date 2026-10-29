@@ -19,7 +19,7 @@ public class CrosshairController : MonoBehaviour
 
     void UpdateVisibility()
     {
-        bool crosshairShow = cameraManager.currentMode == CameraMode.FirstPerson || cameraManager.currentMode == CameraMode.FocusAim;
+        bool crosshairShow = cameraManager.currentMode == CameraMode.FirstPerson || cameraManager.currentMode == CameraMode.ShoulderAim;
 
         crosshair.gameObject.SetActive(crosshairShow);
     }

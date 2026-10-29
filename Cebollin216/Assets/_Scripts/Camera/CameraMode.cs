@@ -1,7 +1,7 @@
 public enum CameraMode
 {
-    FirstPerson,
-    ThirdPerson,
-    FocusAim,
-    LockOn
+FirstPerson,
+ThirdPerson,
+ShoulderAim,
+LockOn
 }

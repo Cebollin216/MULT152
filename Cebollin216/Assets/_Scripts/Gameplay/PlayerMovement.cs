@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         if (targeting.IsLockedOn && targeting.LockedTarget != null)
         {
             Vector3 direction = targeting.LockedTarget.transform.position - transform.position;
-            
+
             direction.y = 0;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);

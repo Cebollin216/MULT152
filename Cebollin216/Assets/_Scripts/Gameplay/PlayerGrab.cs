@@ -3,25 +3,24 @@ using UnityEngine.InputSystem;
 
 public class PlayerGrab : MonoBehaviour
 {
-    public InputActionReference grabAction;
+   public InputActionReference grabAction;
 
-    public Transform holdpoint;
+   public Transform holdPoint;
 
-    private GameObject heldObject;
-
-    [HideInInspector]
-    public string carriedItemName = "Nothing";
-
-    [HideInInspector]
-    public float carriedWeight = 0f;
+   private GameObject heldObject;
+   
+   [HideInInspector]
+   public string carriedItemName = "Nothing";
+   
+   [HideInInspector]
+   public float carriedWeight = 0f;
 
     public GameObject HeldObject
     {
         get { return heldObject;}
     }
-    
 
-    void Update()
+   void Update()
     {
         if (grabAction.action.triggered)
         {
@@ -44,13 +43,12 @@ public class PlayerGrab : MonoBehaviour
         {
             GrabObject grabObject = col.GetComponent<GrabObject>();
 
-
-            if (grabObject != null)
+            if (grabObject != null && grabObject.playerInRange)
             {
                 heldObject = col.gameObject;
 
                 GrabObject grabData = heldObject.GetComponent<GrabObject>();
-                carriedItemName = grabObject.itemName;
+                carriedItemName = grabData.itemName;
                 carriedWeight = grabData.weight;
 
                 Rigidbody rb = heldObject.GetComponent<Rigidbody>();
@@ -60,7 +58,7 @@ public class PlayerGrab : MonoBehaviour
                     rb.isKinematic = true;
                 }
 
-                heldObject.transform.SetParent(holdpoint);
+                heldObject.transform.SetParent(holdPoint);
                 heldObject.transform.localPosition = Vector3.zero;
 
                 return;
