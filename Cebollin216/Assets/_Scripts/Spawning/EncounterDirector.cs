@@ -53,7 +53,7 @@ public class EncounterDirector : MonoBehaviour
            return;   
         }
 
-        int enemyCount = Random.Range(profile.minEnemies, profile.maxEnemies +1);
+        int enemyCount = UnityEngine.Random.Range(profile.minEnemies, profile.maxEnemies +1);
         enemyCount += difficultyModifier;
         enemyCount = Mathf.Max(1, enemyCount);
         Debug.Log($"Encounter {CurrentEncounter}" + $"Enemies: {enemyCount}" + $"Difficulty Bolus: {difficultyModifier}");
@@ -77,7 +77,7 @@ public class EncounterDirector : MonoBehaviour
 
     private SpawnProfile GetRandomProfile()
     {
-        return spawnProfiles[Random.Range(0, spawnProfiles.Count)];
+        return spawnProfiles[UnityEngine.Random.Range(0, spawnProfiles.Count)];
     }
 
     private void RefreshTargeting()
