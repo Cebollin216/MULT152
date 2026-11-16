@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     [Header("Health Setting")]
     public int maxHealth = 100;
     public int currentHealth;
+    public event System.Action<int> OnHealthChanged;
 
     [Header("Damage")]
     [SerializeField] private PlayerDamageEffects damageEffects;
@@ -34,6 +35,7 @@ public class Health : MonoBehaviour
         currentHealth -= damage;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth);
         damageEffects.ShowDamageFlash();
 
         UpdateHealthUI();
@@ -59,7 +61,7 @@ public class Health : MonoBehaviour
 
         healthText.text = "HP " + currentHealth + " / " + maxHealth;
 
-        healthFill.color = Color.Lerp(Color.red, Color.green, currentHealth/(float)maxHealth);
+        healthFill.color = Color.Lerp(Color.red, Color.green, currentHealth / (float)maxHealth);
     }
 
     void Death()
